@@ -29,11 +29,17 @@ public class Ex_Bear {
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			bos.write(b);
 			bos.flush();
+			
+			fos.close();
+			fis.close();
+			bis.close();
+			bos.close();
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 }
