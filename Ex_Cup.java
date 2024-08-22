@@ -21,25 +21,38 @@ public class Ex_Cup {
 		String pathName2 = path2.toString();
 		File file2 = new File(pathName2);
 		
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		BufferedInputStream bis = null;
+		BufferedOutputStream bos = null;
 		try {
-			FileInputStream fis = new FileInputStream(file);
-			FileOutputStream fos = new FileOutputStream(file2);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
+			fis = new FileInputStream(file);
+			fos = new FileOutputStream(file2);
+			bis = new BufferedInputStream(fis);
+			bos = new BufferedOutputStream(fos);
 			byte[] b = new byte[(int)file.length()];
 			bis.read(b);
 			bos.write(b);
 			bos.flush();
 			
-			// file을 close해야 delete가 작동함.
-			fos.close();
-			fis.close();
-			bis.close();
-			bos.close();
+			
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 				e.printStackTrace();
+			}finally {
+				// file을 close해야 delete가 작동함.
+				try {
+					fos.close();
+					fis.close();
+					bis.close();
+					bos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		
 		boolean b = file.delete();
