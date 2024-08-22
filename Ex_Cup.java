@@ -32,8 +32,10 @@ public class Ex_Cup {
 			bos.flush();
 			
 			// file을 close해야 delete가 작동함.
+			fos.close();
 			fis.close();
-			
+			bis.close();
+			bos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
