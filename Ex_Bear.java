@@ -18,28 +18,40 @@ public class Ex_Bear {
 		Path path2 = Paths.get("D:", "pyc" ,"util", "bear.jpg");
 		String pathName2 = path2.toString();
 		File file2 = new File(pathName2);
-		
+		FileInputStream fis = null;
+		FileOutputStream fos = null; 
+		BufferedInputStream bis = null;
+		BufferedOutputStream bos = null;
 		try {
-			FileInputStream fis = new FileInputStream(file);
-			BufferedInputStream bis = new BufferedInputStream(fis);
+			fis = new FileInputStream(file);
+			bis = new BufferedInputStream(fis);
 			byte[] b = new byte[(int)file.length()];
 			bis.read(b);
 			
-			FileOutputStream fos = new FileOutputStream(file2);
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
+			fos = new FileOutputStream(file2);
+			bos = new BufferedOutputStream(fos);
 			bos.write(b);
 			bos.flush();
 			
-			fos.close();
-			fis.close();
-			bis.close();
-			bos.close();
+			
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			try {
+				fis.close();
+				bis.close();
+				fos.close();
+				bos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
 	}
 	
 }
