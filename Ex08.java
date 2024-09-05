@@ -51,7 +51,7 @@ public class Ex08 {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			// close 이후에 삭제 해야 되다. 
+			// close 이후에 삭제해야 한다
 			// 원본 삭제하기 
 			in_file.delete();
 			
