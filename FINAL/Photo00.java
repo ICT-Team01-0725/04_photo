@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-//Developers : 김경서 & 김우현 & 박영찬
+//Developers : 김경서 & 김우현 & 박영찬 & 박현자
 //주석으로 파트별 아이데이션을 올린 분의 이름을 적었습니다.
 //자세한 과정이 궁금하신 분은 Request를 확인해주세요.
 
